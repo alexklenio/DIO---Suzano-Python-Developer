@@ -17,6 +17,7 @@ alun_1 = Estudante("Alex", 1)
 alun_2 = Estudante("Lopes", 2)
 mostrar_valores(alun_1, alun_2)
 
+
 Estudante.escola = "Python"
 alun_3 = Estudante("Ferreira", 3)
 mostrar_valores(alun_1, alun_2, alun_3)
