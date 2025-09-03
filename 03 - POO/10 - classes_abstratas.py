@@ -14,7 +14,6 @@ class ControleRemoto(ABC):
     def marca(self):
         pass
     
-
 class ControleTv(ControleRemoto):
     def ligar(self):
         print("Ligando a TV")
