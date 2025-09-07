@@ -217,9 +217,7 @@ Explore formas de se desenvolver e se destacar na DIO e no mercado:
 
 **Continue aproveitando as oportunidades de aprendizado, buscando mais conhecimento e compartilhando suas descobertas com a comunidade!**
 
-# Certificado: Criando Respostas Generativas com IA no Microsoft Copilot Studio
 
-- Link: https://hermes.dio.me/certificates/5UMQPPTL.pdf
 
 
 
