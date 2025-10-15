@@ -32,4 +32,16 @@ def excluir_registro(conexao, cursor, id):
     conexao.commit()
 
 
-excluir_registro(conexao, cursor, 1)
+def inserir_muitos(conexao, cursor, dados):
+    cursor.executemany("INSERT INTO clientes (nome, email) VALUES (?,?)", dados)
+    conexao.commit()
+
+
+dados = [
+    ("guilherme", "guilherme@gmail.com"),
+    ("caio", "caio@gmail.com"),
+    ("kaua", "kaua@gmail.com"),
+    ("kaue", "kaue@gmail.com"),
+    ("kaionara", "kaionara@gmail.com"),
+]
+inserir_muitos(conexao, cursor, dados)
