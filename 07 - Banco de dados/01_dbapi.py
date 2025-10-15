@@ -5,6 +5,7 @@ ROOT_PATH = Path(__file__).parent
 
 conexao = sqlite3.connect(ROOT_PATH / "meu_banco.sqlite")
 cursor = conexao.cursor()
+cursor.row_factory = sqlite3.Row
 
 
 def criar_tabela(cursor):
@@ -52,14 +53,14 @@ def recuperar_cliente(cursor, id):
     return cursor.fetchone()
 
 
-# cliente = recuperar_cliente(cursor, 2)
-# print(cliente)
-
-
 def listar_clientes(cursor):
     return cursor.execute("SELECT * FROM clientes ORDER BY nome;")
 
 
 clientes = listar_clientes(cursor)
 for cliente in clientes:
-    print(cliente)
+    print(dict(cliente))
+
+cliente = recuperar_cliente(cursor, 2)
+print(dict(cliente))
+print(cliente['id'], cliente['nome'], cliente['email'])
