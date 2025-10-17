@@ -1,12 +1,22 @@
+import os
+
 from flask import Flask
 
-app = Flask(__name__)
 
+def createapp(test_config=None):
+    app = Flask(__name__, instance_relative_config=True)
+    app.config.from_mapping(
+        SECRET_KEY="dev", DATABASE=os.path.join(app.instance_path, "diobank.sqlite")
+    )
 
-@app.route("/")
-def hello_world():
-    return "<h1>Hello, World!</h1>"
+    if test_config is None:
+        app.config.from_pyfile('config.py', silent=True)
+    else:
+        app.config.from_mapping(test_config)
 
-@app.route("/bemvindo")
-def bem_vindo():
-    return "<h1>Bem Vindo!</h1>"
+    try:
+        os.makedirs(app.instance_path)
+    except OSError:
+        pass
+
+    return app
